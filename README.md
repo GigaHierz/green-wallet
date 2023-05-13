@@ -27,7 +27,7 @@ cp example.env .env
 touch .privatekey
 # put environment variables in .env and .privatekey
 source.env
-npx hardhat deploy --chain-id 5
+npx hardhat deploy --chain-id 137
 ```
 
 1. Deploy the smart contract: `npx hardhat deploy --chain-id [chainId]`
