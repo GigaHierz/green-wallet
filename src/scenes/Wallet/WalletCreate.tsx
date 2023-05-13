@@ -90,14 +90,14 @@ function WalletCreate() {
               />
               <button
                 type="button"
-                className="rounded-full btn btn-outline-black bg-green-600 border-black my-2"
+                className="rounded-full btn btn-primary bg-green-600 border-black my-2"
                 onClick={() => removeInput(input)}
               >
                 Remove -
               </button>
               <button
                 type="button"
-                className="rounded-full btn btn-outline-black bg-indigo-600 border-black m-2 my-2"
+                className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2"
                 onClick={addInput}
               >
                 Add +
@@ -119,7 +119,7 @@ function WalletCreate() {
             />
           </div>
           <button
-            className="rounded-full btn btn-outline-black bg-green-600 my-2 border-black"
+            className="rounded-full btn btn-primary bg-green-600 my-2  border-black"
             onClick={createWallet}
           >
             Create Wallet
@@ -135,13 +135,13 @@ function WalletCreate() {
               Quality: Highest ranking certificates will be retired - 5 €
             </p>
             <button
-              className="rounded-full btn btn-outline-black bg-green-600 my-2 border-black"
+              className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
               // onClick=
             >
               Basic 2 €
             </button>
             <button
-              className="rounded-full btn btn-outline-black bg-green-600 m-2 border-black"
+              className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
               // onClick=
             >
               Quality 5€

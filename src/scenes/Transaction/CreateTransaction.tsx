@@ -32,7 +32,7 @@ function CreateTransaction({
 
   return (
     <div>
-      <label>Destination Address</label>
+      <label className="font-bold">Destination Address</label>
       <br />
       <label className="text-muted">
         Example (vitalik.eth): {DEFAULT_DESTINATION_ADDRESS}
@@ -42,7 +42,7 @@ function CreateTransaction({
         value={address}
         onChange={handleAddressChange}
       />
-      <label>Destination Amount</label>
+      <label className="font-bold">Destination Amount</label>
       <input
         type="number"
         className="form-control mb-3"
@@ -50,13 +50,13 @@ function CreateTransaction({
         onChange={handleAmountChange}
       />
       <button
-        className="btn btn-primary bg-green-600 my-2"
+        className="btn btn-primary bg-green-600 border-black my-2"
         onClick={() => createTransaction()}
       >
         Create Transaction
       </button>{" "}
       <button
-        className="btn btn-outline-primary my-2"
+        className="btn btn-primary bg-indigo-600 border-black my-2"
         onClick={() => createTransaction(true)}
       >
         Create Sponsored Transaction

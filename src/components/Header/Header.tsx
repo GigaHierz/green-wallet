@@ -20,7 +20,7 @@ function Header() {
             <p className="mb-1">
               <Link
                 to="/create-wallet"
-                className="px-4 py-2 rounded bg-green-400 ml-4"
+                className="px-4 py-2 text-white rounded bg-green-600 ml-4"
               >
                 Connect Wallet
               </Link>
