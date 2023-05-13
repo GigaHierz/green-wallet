@@ -4,6 +4,7 @@ import { TransactionUtils } from "../../utils/TransactionUtils";
 import WalletManage from "./WalletManage";
 import AccountManage from "./AccountManage";
 import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
+import "tailwindcss/tailwind.css";
 
 function WalletCreate() {
   const [inputs, setInputs] = useState([
