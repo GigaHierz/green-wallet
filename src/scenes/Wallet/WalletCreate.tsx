@@ -103,24 +103,6 @@ function WalletCreate() {
           </button>
         </form>
         <hr />
-
-        <h3 className="text-2xl text-center mb-3">Load a Wallet</h3>
-        <input
-          type="text"
-          className="form-control"
-          placeholder={`Existing Safe Address`}
-          value={safeAddress}
-          onChange={(e) => setSafeAddress(e.target.value)}
-        />
-        <button
-          type="button"
-          className="rounded-full btn btn-outline-primary my-2"
-          onClick={() => {
-            localStorage.setItem("safeAddress", safeAddress);
-          }}
-        >
-          Save Safe Address to Local Storage
-        </button>
       </div>
     </div>
   );
