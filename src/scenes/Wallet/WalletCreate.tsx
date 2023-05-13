@@ -101,6 +101,28 @@ function WalletCreate() {
           >
             Create Wallet
           </button>
+          <div className="my-2">
+            <p className="my-2">
+              To account for the carbon footprint of your transaction we will
+              retire every 500 transactions the equivalent in tons.
+            </p>
+            <p className="my-2">
+              Basic: Lowest ranking certificates will be retired - 2 € Quality:
+              Highest ranking certificates will be retired - 5 €
+            </p>
+            <button
+              className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
+              // onClick=
+            >
+              Basic 2 €
+            </button>
+            <button
+              className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
+              // onClick=
+            >
+              Quality 5€
+            </button>
+          </div>
         </form>
         <hr />
       </div>
