@@ -60,7 +60,6 @@ function WalletCreate() {
         <h1 className="font-mono font-bold text-4xl text-center mt-3">
           Create a Wallet
         </h1>
-
         <form className="m-10 p-10">
           <div>
             <div className="relative ms-50">
@@ -110,7 +109,7 @@ function WalletCreate() {
               </button>
               <button
                 type="button"
-                className="rounded-full btn btn-outline-black bg-indigo-600 border-black my-2"
+                className="rounded-full btn btn-outline-black bg-indigo-600 border-black m-2 my-2"
                 onClick={addInput}
               >
                 Add +
