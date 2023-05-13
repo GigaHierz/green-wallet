@@ -3,17 +3,21 @@ import EventsList from "./scenes/Products/EventsList";
 import EventDetail from "./scenes/Products/EventDetail";
 import Header from "./components/Header/Header";
 import WalletCreate from "./scenes/Wallet/WalletCreate";
+import WalletManage from "./scenes/Wallet/WalletManage";
+import AccountManage from "./scenes/Wallet/AccountManage";
 export default function WebApp() {
   return (
     <div>
-    <BrowserRouter>
+      <BrowserRouter>
         <Header />
         <Routes>
-            <Route path="/" element={<EventsList />} />
-            <Route path="/wallet/create" element={<WalletCreate />} />
-            <Route path="/p/:eventId" element={<EventDetail />} />
+          <Route path="/" element={<EventsList />} />
+          <Route path="/wallet/create" element={<WalletCreate />} />
+          <Route path="/wallet/login" element={<AccountManage />} />
+          <Route path="/wallet/manage" element={<WalletManage />} />
+          <Route path="/p/:eventId" element={<EventDetail />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }
