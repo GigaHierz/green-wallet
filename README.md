@@ -4,6 +4,7 @@
 - https://github.com/IreneBa26
 - https://github.com/i-am-sam-codes
 - https://github.com/GigaHierz
+- https://github.com/zoefleischer
 
 ## Tech Stack
 
