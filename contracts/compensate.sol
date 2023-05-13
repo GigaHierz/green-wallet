@@ -6,35 +6,39 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
-import "./OffsetHelperStorage.sol";
 import "./interfaces/IToucanPoolToken.sol";
 import "./interfaces/IToucanCarbonOffsets.sol";
 import "./interfaces/IToucanContractRegistry.sol";
 import "./interfaces/IRetirementCertificates.sol";
 
-contract MyContract {
-    uint256 private balanceOfNCT;
-    uint256 private balanceOfUSDC;
+contract CO2CompensateContract is
+    ContextUpgradeable,
+    ERC20Upgradeable
+{
+    using SafeERC20Upgradeable for IERC20Upgradeable;
+
+    // ----------------------------------------
+    //      Constants
+    // ----------------------------------------
+
     address private NCTPool = "0xD838290e877E0188a4A44700463419ED96c16107";  //poolToken
     address private address_USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
     enum Quality { NORMAL, HIGH }
-
-    function setVariable1(uint256 co2Amount) external {
-        variable1 = newValue;
-    }
 
     // Checking the type of quality 
     function mainOffset(
         address _depositedToken,
         uint256 _amountToOffset,
         Quality _quality
-    ) external payable returns (address[] memory tco2s, uint256[] memory amounts) {
+    ) external payable {
 
          if (_quality == Quality.NORMAL) {
             autoOffset(NCTPool,_amountToOffset);
-        } else {    
-            //TODO: HIGH QUALITY
-            return false;
+        } else if (_quality == Quality.HIGH) {
+            qualityOffset(NCTPool, _amountToOffset);
+        }
+        else{
+             revert("Invalid quality type");
         }
     }
 
@@ -42,7 +46,7 @@ contract MyContract {
     function autoOffset(
         address _poolToken,
         uint256 _amountToOffset
-    ) private view returns (uint256) {
+    ) private view {
         // redeem BCT / NCT for TCO2s
         (tco2s, amounts) = autoRedeem(_poolToken, _amountToOffset);
 
@@ -53,11 +57,16 @@ contract MyContract {
 
     // if quality = HIGH
     function qualityOffset(
-        address _depositedToken,
-        address _poolToken,
         uint256 _amountToOffset
-    ) private view returns (uint256) {
-        return variable2;
+    ) private view {
+        // get array of TCO2 score
+        highTCO2 = getScoredTCO2s();
+
+        // get highest score -> last element has the highest score
+        address highestTCO2 = scoredTCO2s[scoredTCO2s.length - 1];
+
+        redeemMany(highestTCO2, _amountToOffset);
+        autoRetire(highestTCO2, _amountToOffset);
     }
 
 
@@ -83,8 +92,6 @@ contract MyContract {
         for (uint256 index = 0; index < tco2sLen; index++) {
             balances[msg.sender][tco2s[index]] += amounts[index];
         }
-
-        emit Redeemed(msg.sender, _fromToken, tco2s, amounts);
     }
 
     /**
@@ -124,7 +131,12 @@ contract MyContract {
         }
     }
 
-        /// @notice Redeems Pool tokens for multiple underlying TCO2s 1:1 minus fees
+    // get highest score
+    function getScoredTCO2s() external view returns (address[] memory) {
+        return scoredTCO2s;
+    }
+
+    /// @notice Redeems Pool tokens for multiple underlying TCO2s 1:1 minus fees
     /// @dev User specifies in front-end the addresses and amounts they want
     /// @param tco2s Array of TCO2 contract addresses
     /// @param amounts Array of amounts to redeem for each tco2s
@@ -162,11 +174,15 @@ contract MyContract {
                 feeRedeemDivider;
             totalFee -= burnAmount;
             transfer(feeRedeemReceiver, totalFee);
-            emit RedeemFeePaid(msg.sender, totalFee);
             if (burnAmount > 0) {
                 transfer(feeRedeemBurnAddress, burnAmount);
-                emit RedeemFeeBurnt(msg.sender, burnAmount);
             }
         }
+    }
+
+    /// @dev Internal function that redeems a single underlying token
+    function redeemSingle(address erc20, uint256 amount) internal virtual {
+        _burn(msg.sender, amount);
+        IERC20Upgradeable(erc20).safeTransfer(msg.sender, amount);
     }
 }
