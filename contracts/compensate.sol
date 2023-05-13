@@ -35,7 +35,7 @@ contract CO2CompensateContract is
          if (_quality == Quality.NORMAL) {
             autoOffset(NCTPool,_amountToOffset);
         } else if (_quality == Quality.HIGH) {
-            qualityOffset(NCTPool, _amountToOffset);
+            qualityOffset(_amountToOffset);
         }
         else{
              revert("Invalid quality type");
