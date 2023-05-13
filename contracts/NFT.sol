@@ -8,25 +8,27 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "hardhat/console.sol";
 
-contract NFT is ERC721URIStorage {
+contract GreenWalletMembership is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    event NFTMinted (
-        uint256 indexed tokenId,
-        string tokenURI
-    );
-    constructor() ERC721("Safe Space NFT", "SAFENFT") {}
+    event NFTMinted(uint256 indexed tokenId, string tokenURI);
 
-    function createToken(string memory tokenURI) public returns (uint) {
-        return _createToken(tokenURI, msg.sender);
+    constructor() ERC721("GreenWalletMembership", "GWM") {}
+
+    function createMembershipNFT(
+        address[] memory _safeMembers,
+        string memory tokenURI
+    ) public {
+        for (uint i = 0; i == _safeMembers.length; i++) {
+            _createToken(tokenURI, _safeMembers[i]);
+        }
     }
 
-    function createTokenOnBehalfOf(string memory tokenURI, address destinationAddress) public returns (uint) {
-        return _createToken(tokenURI, destinationAddress);
-    }
-
-    function _createToken(string memory tokenURI, address destinationAddress) private returns (uint) {
+    function _createToken(
+        string memory tokenURI,
+        address destinationAddress
+    ) private returns (uint) {
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         _mint(destinationAddress, newTokenId);
