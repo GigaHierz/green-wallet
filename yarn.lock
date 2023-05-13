@@ -2674,13 +2674,22 @@
     "@safe-global/safe-core-sdk-types" "^1.10.1"
     node-fetch "^2.6.6"
 
-"@safe-global/auth-kit@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@safe-global/auth-kit/-/auth-kit-0.1.1.tgz#d30919fc5fba9aceb5c92a39bd9df6c5fd6e17a4"
-  integrity sha512-6dvoXKGhgYP/TL/L4ANK5BMuKRqja0uIhIEBLTI0gsXSUHMD+y3rpByAkG7U41SlAKvtH12JC9iZrctWW8g8uQ==
+"@safe-global/api-kit@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@safe-global/api-kit/-/api-kit-1.1.0.tgz#b46bcb4491d43576832488183019769d37e3f3e6"
+  integrity sha512-3HB+Vl3dFunID4kadpAqYQQ9lfIJuCk9pYoJsfSWGeEgOOGFwexg3UtO8hh0JXoIO+bX8pm8x5GEF6pX8HeNTQ==
   dependencies:
-    "@safe-global/api-kit" "^1.0.1"
-    "@safe-global/protocol-kit" "^0.1.1"
+    "@ethersproject/abstract-signer" "^5.7.0"
+    "@safe-global/safe-core-sdk-types" "^2.0.0"
+    node-fetch "^2.6.6"
+
+"@safe-global/auth-kit@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@safe-global/auth-kit/-/auth-kit-1.0.0.tgz#a72ff8014ad8565db5e5f6e093988d3aaed7fc50"
+  integrity sha512-XUb3nvYBtUd/MsMRqgt93joKQFeGvR++yh7qnYxAEhUbSxA1+8a5BQIJR6YryzAm5D/5WmkC/NHNpi/i+0fJpA==
+  dependencies:
+    "@safe-global/api-kit" "^1.1.0"
+    "@safe-global/protocol-kit" "^1.0.0"
     "@walletconnect/client" "^1.8.0"
     ethers "^5.7.2"
 
@@ -2699,6 +2708,21 @@
     "@ethersproject/bignumber" "^5.7.0"
     "@ethersproject/solidity" "^5.7.0"
     "@safe-global/safe-deployments" "^1.20.2"
+    ethereumjs-util "^7.1.5"
+    semver "^7.3.8"
+    web3 "^1.8.1"
+    web3-core "^1.8.1"
+    web3-utils "^1.8.1"
+
+"@safe-global/protocol-kit@^1.0.0":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@safe-global/protocol-kit/-/protocol-kit-1.0.1.tgz#05c00436a75bebedb2cc35efc461c9aa909f8f89"
+  integrity sha512-ZLfFxV6U9f5bJKcCQmrDJq/FzDGz7FMpXOjJ+G90VkaqBme3En73sN1KGd7++VKS7H3ukyM/xetrJs2mtvHlZg==
+  dependencies:
+    "@ethersproject/address" "^5.7.0"
+    "@ethersproject/bignumber" "^5.7.0"
+    "@ethersproject/solidity" "^5.7.0"
+    "@safe-global/safe-deployments" "^1.22.0"
     ethereumjs-util "^7.1.5"
     semver "^7.3.8"
     web3 "^1.8.1"
@@ -2726,10 +2750,28 @@
     web3-core "^1.8.1"
     web3-utils "^1.8.1"
 
+"@safe-global/safe-core-sdk-types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@safe-global/safe-core-sdk-types/-/safe-core-sdk-types-2.0.0.tgz#643dd87c9738ff8b3eaecb06ce399cae8a48af02"
+  integrity sha512-9bcGaEuJCRG1ccGxKNjLzJuXMqdJZEFkWi+1vf6UFO8gpmanasvBozMEo6fzUMtDBGgkkStYywhO6Cp0tKyD3Q==
+  dependencies:
+    "@ethersproject/bignumber" "^5.7.0"
+    "@ethersproject/contracts" "^5.7.0"
+    "@safe-global/safe-deployments" "^1.22.0"
+    web3-core "^1.8.1"
+    web3-utils "^1.8.1"
+
 "@safe-global/safe-deployments@^1.20.2":
   version "1.21.1"
   resolved "https://registry.yarnpkg.com/@safe-global/safe-deployments/-/safe-deployments-1.21.1.tgz#28849ab9441855eb10c50f3ae835f34ec69dede4"
   integrity sha512-W5+EGdidRupGvMCHBaV3iNvcfqwzjOZcYWlMndCTo/JSHfe1az79AqOyKVSKK5AyEDt5iUlH8tTjmk8vTuQDwA==
+  dependencies:
+    semver "^7.3.7"
+
+"@safe-global/safe-deployments@^1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@safe-global/safe-deployments/-/safe-deployments-1.22.0.tgz#4214ac5a9ebcad7cdbf5f641b0728bc0e497286e"
+  integrity sha512-SmbeCRMlcO/EONxbV6nP6pM/60q0NIHVezxx5FMv0dIAkDffdbm25reonKlOk3AJYW1b/c6pZA0RbWDwFSJEkQ==
   dependencies:
     semver "^7.3.7"
 
@@ -3040,6 +3082,16 @@
     "@stablelib/keyagreement" "^1.0.1"
     "@stablelib/random" "^1.0.2"
     "@stablelib/wipe" "^1.0.1"
+
+"@stripe/crypto@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@stripe/crypto/-/crypto-0.0.4.tgz#51dbcb3750c75a6b8a6c8775381af82367359146"
+  integrity sha512-gcD/aG0N90ZrNVppWYf9ADPECptw6PVtF67VIeaFP7fhgd2NvNx8erkzlcvk3VIVSY+bZ6YGX7c7cASoySX74Q==
+
+"@stripe/stripe-js@^1.52.1":
+  version "1.52.1"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.52.1.tgz#d821bcd627a34227c20fe87d7c8f8bd4386eaf2e"
+  integrity sha512-fza40OPSpGQlFxc5TZWiYC/6Lk89Sep1fLuv9ss33YS6lCAF8UZbfA1E6W+lwO4c7WRKZIZumHIEbPJfP/O9uw==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
