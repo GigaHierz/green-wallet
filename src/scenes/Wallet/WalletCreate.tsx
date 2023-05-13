@@ -13,9 +13,9 @@ function WalletCreate() {
   // usestate for threshold
   const [threshold, setThreshold] = useState(1);
   // usestate for safe address
-  const [safeAddress, setSafeAddress] = useState(localStorage.getItem('safeAddress')||'');
+  const [safeAddress, setSafeAddress] = useState(localStorage.getItem('safeAddress') || '');
   const [account, setAccount] = useState<SafeAuthKit<Web3AuthModalPack>>()
-  
+
 
   const addInput = () => {
     setInputs([...inputs, { key: TextUtils.randomString(), value: "" }]);
@@ -93,6 +93,17 @@ function WalletCreate() {
               value={threshold || inputs.length}
               onChange={handleThresholdChange}
             />
+          </div>
+          <div>
+            <label>Checked switch checkbox input</label>
+            <input
+              type="checkbox"
+              className="slider round"
+              role="switch"
+              checked
+            />
+            <span className="slider round"></span>
+
           </div>
           <button className="btn btn-primary my-2" onClick={createWallet}>
             Create Wallet

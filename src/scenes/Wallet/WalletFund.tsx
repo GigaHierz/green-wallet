@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeOnRampKit, SafeOnRampProviderType } from '@safe-global/onramp-kit'
+import { SafeOnRampKit, SafeOnRampProviderType, StripePack } from '@safe-global/onramp-kit';
 
 export interface WalletFundProps {
   address: string;
@@ -15,15 +15,15 @@ function WalletFund() {
 
   const fundWallet = async () => {
 
-    const safeOnRamp = await SafeOnRampKit.init(SafeOnRampProviderType.Stripe, {
-      onRampProviderConfig: {
+    const safeOnRamp = await SafeOnRampKit.init(
+      new StripePack({
         // Get public key from Stripe: https://dashboard.stripe.com/register
         stripePublicKey:
           'pk_test_51MZbmZKSn9ArdBimSyl5i8DqfcnlhyhJHD8bF2wKrGkpvNWyPvBAYtE211oHda0X3Ea1n4e9J9nh2JkpC7Sxm5a200Ug9ijfoO',
-        // Deploy your own server: https://github.com/safe-global/account-abstraction-sdk/tree/main/packages/onramp-kit/example/server
+        // Deploy your own server: https://github.com/5afe/aa-stripe-service
         onRampBackendUrl: 'https://aa-stripe.safe.global',
-      },
-    });
+      })
+    );
 
     const sessionData = await safeOnRamp.open({
       walletAddress: address,
