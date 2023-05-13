@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import WalletFund from './WalletFund';
 import CreateTransaction from '../Transaction/CreateTransaction'
 import ReviewTransactions from '../Transaction/ReviewTransactions';
-import { SafeAuthKit, Web3AuthAdapter } from '@safe-global/auth-kit';
+import { SafeAuthKit, Web3AuthModalPack } from '@safe-global/auth-kit';
 
-function WalletManage({authKit}: {authKit?: SafeAuthKit<Web3AuthAdapter>}) {
+function WalletManage({authKit}: {authKit?: SafeAuthKit<Web3AuthModalPack>}) {
 
   const steps = [
     {

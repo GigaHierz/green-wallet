@@ -3,7 +3,7 @@ import { TextUtils } from "../../utils/TextUtils";
 import { TransactionUtils } from "../../utils/TransactionUtils";
 import WalletManage from "./WalletManage";
 import AccountManage from "./AccountManage";
-import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
+import { SafeAuthKit, Web3AuthModalPack } from '@safe-global/auth-kit';
 import "tailwindcss/tailwind.css";
 
 function WalletCreate() {
@@ -13,10 +13,9 @@ function WalletCreate() {
   // usestate for threshold
   const [threshold, setThreshold] = useState(1);
   // usestate for safe address
-  const [safeAddress, setSafeAddress] = useState(
-    localStorage.getItem("safeAddress") || ""
-  );
-  const [account, setAccount] = useState<SafeAuthKit<Web3AuthAdapter>>();
+  const [safeAddress, setSafeAddress] = useState(localStorage.getItem('safeAddress')||'');
+  const [account, setAccount] = useState<SafeAuthKit<Web3AuthModalPack>>()
+  
 
   const addInput = () => {
     setInputs([...inputs, { key: TextUtils.randomString(), value: "" }]);
@@ -35,7 +34,7 @@ function WalletCreate() {
     setThreshold(Number.parseInt(e.target.value));
   };
 
-  const handleLoggedIn = (loggedInAccount: SafeAuthKit<Web3AuthAdapter>) => {
+  const handleLoggedIn = (loggedInAccount: SafeAuthKit<Web3AuthModalPack>) => {
     setAccount(loggedInAccount);
   };
 

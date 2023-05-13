@@ -4,7 +4,7 @@ import Safe, { EthersAdapter, SafeFactory, SafeAccountConfig } from '@safe-globa
 import { MetaTransactionData, OperationType, MetaTransactionOptions, RelayTransaction } from '@safe-global/safe-core-sdk-types'
 import { GelatoRelayAdapter } from '@safe-global/relay-kit'
 import { CHAIN_INFO } from './Chain'
-import { SafeAuthKit, Web3AuthAdapter } from '@safe-global/auth-kit'
+import { SafeAuthKit, Web3AuthModalPack } from '@safe-global/auth-kit'
 
 declare global {
     interface Window {
@@ -18,7 +18,7 @@ export class TransactionUtils {
      * https://stackoverflow.com/a/1054862/5405197
      */
 
-    static getEthAdapter = async (useSigner: boolean = true, authKit?: SafeAuthKit<Web3AuthAdapter>) => {
+    static getEthAdapter = async (useSigner: boolean = true, authKit?: SafeAuthKit<Web3AuthModalPack>) => {
 
         // Using ethers
 
@@ -85,7 +85,7 @@ export class TransactionUtils {
     }
 
     static createTransaction = async (safeAddress: string, destination: string, amount: number|string,
-         sponsored: boolean = false, authKit?: SafeAuthKit<Web3AuthAdapter>) => {
+         sponsored: boolean = false, authKit?: SafeAuthKit<Web3AuthModalPack>) => {
 
         amount = ethers.utils.parseUnits(amount.toString(), 'ether').toString()
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { TransactionUtils } from '../../utils/TransactionUtils';
 import { DEFAULT_DESTINATION_ADDRESS } from '../../utils/Chain';
-import { SafeAuthKit, Web3AuthAdapter } from '@safe-global/auth-kit';
+import { SafeAuthKit, Web3AuthModalPack } from '@safe-global/auth-kit';
 
-function CreateTransaction({authKit}: {authKit?: SafeAuthKit<Web3AuthAdapter>}) {
+function CreateTransaction({authKit}: {authKit?: SafeAuthKit<Web3AuthModalPack>}) {
     const [address, setAddress] = useState<string>('');
     const [amount, setAmount] = useState<number>(0);
 
