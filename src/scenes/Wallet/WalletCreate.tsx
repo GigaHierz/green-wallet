@@ -57,7 +57,7 @@ function WalletCreate() {
   return (
     <div>
       <div className="EventDetail container card shadow my-5 p-5">
-        <h1 className="text-center mb-3">Create a Wallet</h1>
+        <h1 className="text-2xl text-center mb-3">Create a Wallet</h1>
         <form>
           {inputs.map((input, index) => (
             <div key={input.key} className="form-group">
@@ -70,7 +70,7 @@ function WalletCreate() {
               />
               <button
                 type="button"
-                className="btn btn-outline-danger my-2"
+                className="rounded-full btn btn-outline-danger my-2"
                 onClick={() => removeInput(input)}
               >
                 Remove
@@ -79,7 +79,7 @@ function WalletCreate() {
           ))}
           <button
             type="button"
-            className="btn btn-outline-primary my-2"
+            className="rounded-full btn btn-outline-primary my-2"
             onClick={addInput}
           >
             Add Another Owner
@@ -95,13 +95,16 @@ function WalletCreate() {
               onChange={handleThresholdChange}
             />
           </div>
-          <button className="btn btn-primary my-2" onClick={createWallet}>
+          <button
+            className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
+            onClick={createWallet}
+          >
             Create Wallet
           </button>
         </form>
         <hr />
 
-        <h3 className="text-center mb-3">Load a Wallet</h3>
+        <h3 className="text-2xl text-center mb-3">Load a Wallet</h3>
         <input
           type="text"
           className="form-control"
@@ -111,7 +114,7 @@ function WalletCreate() {
         />
         <button
           type="button"
-          className="btn btn-outline-primary my-2"
+          className="rounded-full btn btn-outline-primary my-2"
           onClick={() => {
             localStorage.setItem("safeAddress", safeAddress);
           }}
