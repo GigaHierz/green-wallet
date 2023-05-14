@@ -32,10 +32,7 @@ function EventsList() {
         </div>
         <div className="mt-10">
           <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
-            <Link to="/wallet/manage">Back</Link>
-          </p>
-          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
-            <Link to="/wallet/fund">Next</Link>
+            <Link to="/wallet/create">Create a Wallet</Link>
           </p>
         </div>
       </div>

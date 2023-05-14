@@ -155,10 +155,10 @@ function WalletCreate() {
 
         <div>
           <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
-            <Link to="/wallet/manage">Back</Link>
+            <Link to="/">Back</Link>
           </p>
           <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
-            <Link to="/wallet/fund">Next</Link>
+            <Link to="/wallet/manage">Next</Link>
           </p>
         </div>
       </div>
