@@ -1,6 +1,6 @@
 # Welcome to GreenWallet! 🌻
 
-Blockchain still not net-zero and we can feel the climate change every day. So it is time for everyone and especially companies with high transaction volume be arware of their impact in all spaces.
+Blockchain still not net-zero and we can feel the climate change every day. So it is time for everyone and especially companies with high transaction volume be aware of their impact in all spaces.
 
 **GreenWallet** is an eco-friendly, chain-agnostic wallet that accounts for your blockchain transactions by offsetting your carbon footprint.
 
@@ -21,10 +21,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 GreenWallet aims to give the environmentally aware user a clean consciousness while browsing web3.
 While the user has a seamless experience, GreenWallets mechanisms tracks the emission of the transactions and calculate the according carbon footprint.
 
-Pitch:
-An eco-friendly wallet that automatically offsets your carbon footprint in a subscription model. Aiming to provide a seamless opportunity for environmentally conscious users to improve their social impact.
+### Project Description
 
-Project Description
 This project was created out of the idea to create a wrapper around wallets that automatically retires carbon credits to account for the emissions of transactions.
 
 Of course we don't want to offset every transaction with a transaction, so we decided to offset in batches (after 500 tx - number has to be calculated more in detail, see Offsetra). Carbon Offsetting on-chain is still a hussle, as there are different procedures, different standards and even though on-chain carbon credits are way more liquid on-chain than off-chain, you can only get them on certain chains and only a few exchanges.
@@ -33,13 +31,15 @@ In the case of the wallet, the user should not have to bother with that. When cr
 
 Everybody loves to be environmentally friendly, but as soon as it gets too complicated, they drop out as long as there is no value. That's why we created Green Wallet.
 
-Poaps, Leaderboards and implementation in social apps is in the future as this is always a great markting tool while raising awareness at the same time.
+Poaps, Leaderboards and implementation in social apps is in the future as this is always a great marketing tool while raising awareness at the same time.
 
 ## How it's Made
 
 The base of our project was Safe (Gnosis). The carbon offsetting was done by using Toucan's infrastructure.
 
 The goal was to add two different modules integrated with the "Safe{Core} Protocol " to the Safe, based on if the Safe is on Celo & Polygon, in which case, the module would just check if the 500 transactions have been reached and if they did, would send a defined amount of tokens to our OffsetContract that would then offset the tokens. In our case, as it is a contract that always does the same, doing a swap (from ERC20 to carbon token) for every offset, does not seem very sustainable, so we added an automation to the contract in which case it would automatically swap deposited ERC20 tokens for carbon tokens, when the carbon tokens reach a certain low.
+
+![image of how to add modules to Safe, calling a Toucan OffsetHelper](./assets/safe-toucan.jpg)
 
 We are also providing a gasless experience to incentivice the user to use our wallet.
 
