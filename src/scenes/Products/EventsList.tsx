@@ -18,10 +18,7 @@ function EventsList() {
           <hr className="mb-10" />
           <h1 className="font-bold text-3xl mb-10">How it works?</h1>
           <ul className="text-lg font-semibold">
-            <li>
-              • Sign up for a Gnosis safe wallet Optionally authenticate with
-              Lens
-            </li>
+            <li>• Sign up for a Gnosis safe wallet</li>
             <li>• Choose a payment model</li>
             <li>
               • Have your carbon footprint be offset automatically every 500 txs
