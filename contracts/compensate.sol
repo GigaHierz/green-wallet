@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Toucan Labs
-//
+// contracts/Compensate.sol
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.8.0;
@@ -16,16 +15,18 @@ contract CO2CompensateContract is
     ContextUpgradeable
     //ERC20Upgradeable
 {
-    
     //using SafeERC20Upgradeable for IERC20Upgradeable;
 
     // ----------------------------------------
     //      Constants
     // ----------------------------------------
 
-    address private NCTPool = 0xD838290e877E0188a4A44700463419ED96c16107;  //poolToken
+    address private NCTPool = 0xD838290e877E0188a4A44700463419ED96c16107; //poolToken
     address public usdcToken = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-    enum Quality { NORMAL, HIGH }
+    enum Quality {
+        NORMAL,
+        HIGH
+    }
 
     /*
     function swapToNCT(uint256 amount) internal {
@@ -53,20 +54,18 @@ contract CO2CompensateContract is
         return PoolTokenImplementation.scoredTCO2s;
     }*/
 
-    // Checking the type of quality 
+    // Checking the type of quality
     function mainOffset(
         address _depositedToken,
         uint256 _amountToOffset,
         Quality _quality
     ) external payable {
-
-         if (_quality == Quality.NORMAL) {
-            autoOffset(NCTPool,_amountToOffset);
+        if (_quality == Quality.NORMAL) {
+            autoOffset(NCTPool, _amountToOffset);
         } else if (_quality == Quality.HIGH) {
             qualityOffset(_amountToOffset);
-        }
-        else{
-             revert("Invalid quality type");
+        } else {
+            revert("Invalid quality type");
         }
     }
 
@@ -74,7 +73,7 @@ contract CO2CompensateContract is
     function autoOffset(
         address _poolToken,
         uint256 _amountToOffset
-    ) private returns (address[] memory tco2s, uint256[] memory amounts){
+    ) private returns (address[] memory tco2s, uint256[] memory amounts) {
         // redeem BCT / NCT for TCO2s
         (tco2s, amounts) = autoRedeem(_poolToken, _amountToOffset);
 
@@ -82,11 +81,8 @@ contract CO2CompensateContract is
         autoRetire(tco2s, amounts);
     }
 
-    
     // if quality = HIGH
-    function qualityOffset(
-        uint256 _amountToOffset
-    ) private view {
+    function qualityOffset(uint256 _amountToOffset) private view {
         /*
         IToucanPoolToken PoolTokenImplementation = IToucanPoolToken(NCTPool);
 
@@ -102,19 +98,15 @@ contract CO2CompensateContract is
         */
     }
 
-
-    function autoRedeem(address _fromToken, uint256 _amount)
-        private
-        returns (address[] memory tco2s, uint256[] memory amounts)
-    {
-    
+    function autoRedeem(
+        address _fromToken,
+        uint256 _amount
+    ) private returns (address[] memory tco2s, uint256[] memory amounts) {
         // instantiate pool token (NCT or BCT)
         IToucanPoolToken PoolTokenImplementation = IToucanPoolToken(_fromToken);
 
         // auto redeem pool token for TCO2; will transfer automatically picked TCO2 to this contract
         (tco2s, amounts) = PoolTokenImplementation.redeemAuto2(_amount);
-
-     
     }
 
     /**
@@ -123,9 +115,10 @@ contract CO2CompensateContract is
      * @param _amounts The amounts to retire from each of the corresponding
      * TCO2 addresses
      */
-    function autoRetire(address[] memory _tco2s, uint256[] memory _amounts)
-        private  
-    {
+    function autoRetire(
+        address[] memory _tco2s,
+        uint256[] memory _amounts
+    ) private {
         uint256 tco2sLen = _tco2s.length;
         require(tco2sLen != 0, "Array empty");
 
@@ -139,9 +132,14 @@ contract CO2CompensateContract is
                 }
                 continue;
             }
-    
 
-            IToucanCarbonOffsets(_tco2s[i]).retireAndMintCertificate("green wallet",msg.sender,"EcoHero","Retirment in progress",_amounts[i]);
+            IToucanCarbonOffsets(_tco2s[i]).retireAndMintCertificate(
+                "green wallet",
+                msg.sender,
+                "EcoHero",
+                "Retirment in progress",
+                _amounts[i]
+            );
 
             unchecked {
                 ++i;
@@ -149,31 +147,25 @@ contract CO2CompensateContract is
         }
     }
 
-
     /// @notice Redeems Pool tokens for multiple underlying TCO2s 1:1 minus fees
     /// @dev User specifies in front-end the addresses and amounts they want
     /// @param tco2s Array of TCO2 contract addresses
     /// @param amounts Array of amounts to redeem for each tco2s
     /// Pool token in user's wallet get burned
-    function redeemMany(address[] memory tco2s, uint256[] memory amounts)
-        internal
-        virtual
-    {
+    function redeemMany(
+        address[] memory tco2s,
+        uint256[] memory amounts
+    ) internal virtual {
         // IToucanPoolToken PoolTokenImplementation = IToucanPoolToken(NCTPool);
-
         // //PoolTokenImplementation.onlyUnpaused();
         // uint256 tco2Length = tco2s.length;
         // require(tco2Length == amounts.length, '12');
-
-
-
         // //slither-disable-next-line uninitialized-local
         // uint256 totalFee;
         // uint256 _feeRedeemPercentageInBase = PoolTokenImplementation.feeRedeemPercentageInBase;
         // bool isExempted = PoolTokenImplementation.redeemFeeExemptedAddresses[msg.sender];
         // //slither-disable-next-line uninitialized-local
         // uint256 feeAmount;
-
         // //slither-disable-next-line uninitialized-local
         // for (uint256 i; i < tco2Length; ++i) {
         //     PoolTokenImplementation.checkEligible(tco2s[i]);
@@ -201,7 +193,6 @@ contract CO2CompensateContract is
     /// @dev Internal function that redeems a single underlying token
     function redeemSingle(address erc20, uint256 amount) internal virtual {
         // IToucanPoolToken   PoolTokenImplementation = IToucanPoolToken(NCTPool);
-
         // PoolTokenImplementation._burn(msg.sender, amount);
         // IERC20Upgradeable(erc20).safeTransfer(msg.sender, amount);
     }
