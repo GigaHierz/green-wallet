@@ -26,6 +26,10 @@ function EventsList() {
             <li>
               • Have your carbon footprint be offset automatically every 500 txs
             </li>
+            <li>
+              • Gas less trasnactions! You won't have to struggel and more with
+              getting the right tokens to pay for gas!!
+            </li>
             <li>• Receive a membership NFT that can be displayed in your</li>
             <li>• Get analytics about your carbon footprint generation</li>
           </ul>
