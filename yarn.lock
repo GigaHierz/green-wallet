@@ -2544,6 +2544,11 @@
   resolved "https://registry.yarnpkg.com/@nomiclabs/hardhat-waffle/-/hardhat-waffle-2.0.5.tgz#97c217f1db795395c04404291937edb528f3f218"
   integrity sha512-U1RH9OQ1mWYQfb+moX5aTgGjpVVlOcpiFI47wwnaGG4kLhcTy90cNiapoqZenxcRAITVbr0/+QSduINL5EsUIQ==
 
+"@openzeppelin/contracts-upgradeable@^4.8.3":
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-4.8.3.tgz#6b076a7b751811b90fe3a172a7faeaa603e13a3f"
+  integrity sha512-SXDRl7HKpl2WDoJpn7CK/M9U4Z8gNXDHHChAKh0Iz+Wew3wu6CmFYBeie3je8V0GSXZAIYYwUktSrnW/kwVPtg==
+
 "@openzeppelin/contracts@^4.8.1":
   version "4.8.3"
   resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.8.3.tgz#cbef3146bfc570849405f59cba18235da95a252a"
@@ -3069,6 +3074,11 @@
     "@stablelib/keyagreement" "^1.0.1"
     "@stablelib/random" "^1.0.2"
     "@stablelib/wipe" "^1.0.1"
+
+"@stripe/crypto@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@stripe/crypto/-/crypto-0.0.4.tgz#51dbcb3750c75a6b8a6c8775381af82367359146"
+  integrity sha512-gcD/aG0N90ZrNVppWYf9ADPECptw6PVtF67VIeaFP7fhgd2NvNx8erkzlcvk3VIVSY+bZ6YGX7c7cASoySX74Q==
 
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"

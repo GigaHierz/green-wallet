@@ -1,5 +1,4 @@
-// SPDX-FileCopyrightText: 2022 Toucan Labs
-//
+// contracts/Compensate.sol
 // SPDX-License-Identifier: GPL-3.0
 
 pragma solidity ^0.8.0;
