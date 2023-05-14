@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { TextUtils } from "../../utils/TextUtils";
 import { TransactionUtils } from "../../utils/TransactionUtils";
-import { SafeAuthKit, Web3AuthModalPack } from "@safe-global/auth-kit";
+import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
+import { Link } from "react-router-dom";
+
 import "tailwindcss/tailwind.css";
 
 function WalletCreate() {
@@ -14,7 +16,7 @@ function WalletCreate() {
   const [safeAddress, setSafeAddress] = useState(
     localStorage.getItem("safeAddress") || ""
   );
-  const [account, setAccount] = useState<SafeAuthKit<Web3AuthModalPack>>();
+  const [account, setAccount] = useState<SafeAuthKit<Web3AuthAdapter>>();
 
   const addInput = () => {
     setInputs([...inputs, { key: TextUtils.randomString(), value: "" }]);
@@ -33,7 +35,7 @@ function WalletCreate() {
     setThreshold(Number.parseInt(e.target.value));
   };
 
-  const handleLoggedIn = (loggedInAccount: SafeAuthKit<Web3AuthModalPack>) => {
+  const handleLoggedIn = (loggedInAccount: SafeAuthKit<Web3AuthAdapter>) => {
     setAccount(loggedInAccount);
   };
 
@@ -53,14 +55,14 @@ function WalletCreate() {
   };
 
   return (
-    <div>
-      <div className="EventDetail container card shadow bg-violet-400 my-5 p-5">
+    <div className="px-80">
+      <div className="EventDetail container card border-black shadow bg-violet-400 my-5 p-5">
         <h1 className="font-mono font-bold text-4xl text-center mt-3">
-          Create a Wallet
+          ✨ Create a Wallet ✨
         </h1>
-        <form className="m-10 p-10">
+        <form className="m-10 px-16">
           <div>
-            <div className="relative ms-50">
+            <div className="relative ms-50 pb-2">
               <select className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                 <option>Ethereum</option>
                 <option>Polygon PoS</option>
@@ -72,25 +74,13 @@ function WalletCreate() {
               </select>
 
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg
-                  className="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M14.949 7.879l-4.95 4.95-4.95-4.95-1.414 1.414 4.95 4.95-4.95 4.95 1.414 1.414 4.95-4.95 4.95 4.95 1.414-1.414-4.95-4.95 4.95-4.95z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                v
               </div>
             </div>
-
-            {/* Rest of the component */}
           </div>
 
           {inputs.map((input, index) => (
-            <div key={input.key} className="form-group">
+            <div key={input.key} className="form-group pb-2">
               <input
                 type="text"
                 className="form-control"
@@ -100,25 +90,54 @@ function WalletCreate() {
               />
               <button
                 type="button"
-                className="rounded-full btn btn-outline-black bg-green-600 border-black my-2"
+                className="rounded-full btn btn-primary bg-green-600 border-black my-2"
                 onClick={() => removeInput(input)}
               >
                 Remove -
               </button>
               <button
                 type="button"
-                className="rounded-full btn btn-outline-black bg-indigo-600 border-black m-2 my-2"
+                className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2"
                 onClick={addInput}
               >
                 Add +
               </button>
             </div>
           ))}
+        </form>
 
+        <hr />
+
+        <div className="m-10 px-16">
+          <p className="font-bold my-2">
+            To account for the carbon footprint of your transaction we will
+            retire every 500 transactions the equivalent in tons.
+          </p>
+          <p className="font-bold my-2 pt-2">
+            Basic: Lowest ranking certificates will be retired - 2 € <br></br>
+            Quality: Highest ranking certificates will be retired - 5 €
+          </p>
+          <button
+            className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
+            // onClick=
+          >
+            Basic 2 €
+          </button>
+          <button
+            className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
+            // onClick=
+          >
+            Quality 5€
+          </button>
+        </div>
+
+        <form className="m-10 px-16">
           <div>
             <hr />
 
-            <label>Owners needed to approve a transaction</label>
+            <label className="font-bold pb-2 pt-2">
+              Owners needed to approve a transaction
+            </label>
             <input
               type="number"
               className="form-control"
@@ -127,35 +146,21 @@ function WalletCreate() {
             />
           </div>
           <button
-            className="rounded-full btn btn-primary bg-green-700 my-2 border-black"
+            className="rounded-full btn btn-primary bg-green-600 my-2  border-black"
             onClick={createWallet}
           >
             Create Wallet
           </button>
-          <div className="my-2">
-            <p className="my-2">
-              To account for the carbon footprint of your transaction we will
-              retire every 500 transactions the equivalent in tons.
-            </p>
-            <p className="my-2">
-              Basic: Lowest ranking certificates will be retired - 2 € Quality:
-              Highest ranking certificates will be retired - 5 €
-            </p>
-            <button
-              className="rounded-full btn btn-primary bg-green-700 my-2 border-black"
-              // onClick=
-            >
-              Basic 2 €
-            </button>
-            <button
-              className="rounded-full btn btn-primary bg-green-700 m-2 border-black"
-              // onClick=
-            >
-              Quality 5€
-            </button>
-          </div>
         </form>
-        <hr />
+
+        <div>
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/manage">Back</Link>
+          </p>
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/fund">Next</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

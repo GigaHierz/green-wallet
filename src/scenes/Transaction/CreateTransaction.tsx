@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { TransactionUtils } from "../../utils/TransactionUtils";
 import { DEFAULT_DESTINATION_ADDRESS } from "../../utils/Chain";
-import { SafeAuthKit, Web3AuthModalPack } from "@safe-global/auth-kit";
+import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
 
 function CreateTransaction({
   authKit,
 }: {
-  authKit?: SafeAuthKit<Web3AuthModalPack>;
+  authKit?: SafeAuthKit<Web3AuthAdapter>;
 }) {
   const [address, setAddress] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
@@ -32,7 +32,7 @@ function CreateTransaction({
 
   return (
     <div>
-      <label>Destination Address</label>
+      <label className="font-bold">Destination Address</label>
       <br />
       <label className="text-muted">
         Example (vitalik.eth): {DEFAULT_DESTINATION_ADDRESS}
@@ -42,7 +42,7 @@ function CreateTransaction({
         value={address}
         onChange={handleAddressChange}
       />
-      <label>Destination Amount</label>
+      <label className="font-bold">Destination Amount</label>
       <input
         type="number"
         className="form-control mb-3"
@@ -50,13 +50,13 @@ function CreateTransaction({
         onChange={handleAmountChange}
       />
       <button
-        className="btn btn-primary bg-green-600 my-2"
+        className="rounded-full btn btn-primary bg-green-600 border-black my-2"
         onClick={() => createTransaction()}
       >
         Create Transaction
       </button>{" "}
       <button
-        className="btn btn-outline-primary my-2"
+        className="rounded-full btn btn-primary bg-indigo-600 border-black my-2"
         onClick={() => createTransaction(true)}
       >
         Create Sponsored Transaction

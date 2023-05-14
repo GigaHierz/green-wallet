@@ -1,21 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAuthKit, SafeAuthSignInData, Web3AuthModalPack, Web3AuthEventListener } from '@safe-global/auth-kit';
-import { Web3AuthOptions } from '@web3auth/modal';
-import { OpenloginAdapter } from '@web3auth/openlogin-adapter';
-import { ADAPTER_EVENTS, CHAIN_NAMESPACES, SafeEventEmitterProvider, WALLET_ADAPTERS } from '@web3auth/base';
+import React, { useEffect, useState } from "react";
+import {
+  SafeAuthKit,
+  SafeAuthSignInData,
+  Web3AuthAdapter,
+  Web3AuthEventListener,
+} from "@safe-global/auth-kit";
+import { Web3AuthOptions } from "@web3auth/modal";
+import { OpenloginAdapter } from "@web3auth/openlogin-adapter";
+import {
+  ADAPTER_EVENTS,
+  CHAIN_NAMESPACES,
+  SafeEventEmitterProvider,
+  WALLET_ADAPTERS,
+} from "@web3auth/base";
 
 const connectedHandler: Web3AuthEventListener = (data) =>
   console.log("CONNECTED", data);
 const disconnectedHandler: Web3AuthEventListener = (data) =>
   console.log("DISCONNECTED", data);
 
-function AccountManage({onLoggedIn}: {onLoggedIn?: (account: SafeAuthKit<Web3AuthModalPack>) => void}) {
-
-  const [safeAuthSignInResponse, setSafeAuthSignInResponse] = useState<SafeAuthSignInData | null>(
+function AccountManage({
+  onLoggedIn,
+}: {
+  onLoggedIn?: (account: SafeAuthKit<Web3AuthAdapter>) => void;
+}) {
+  const [safeAuthSignInResponse, setSafeAuthSignInResponse] =
+    useState<SafeAuthSignInData | null>(null);
+  const [safeAuth, setSafeAuth] = useState<SafeAuthKit<Web3AuthAdapter>>();
+  const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(
     null
-  )
-  const [safeAuth, setSafeAuth] = useState<SafeAuthKit<Web3AuthModalPack>>()
-  const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null)
+  );
 
   useEffect(() => {
     (async () => {
@@ -64,7 +78,11 @@ function AccountManage({onLoggedIn}: {onLoggedIn?: (account: SafeAuthKit<Web3Aut
         },
       });
 
-      const adapter = new Web3AuthModalPack(options, [openloginAdapter], modalConfig)
+      const adapter = new Web3AuthAdapter(
+        options,
+        [openloginAdapter],
+        modalConfig
+      );
 
       const safeAuthKit = await SafeAuthKit.init(adapter, {
         txServiceUrl: "https://safe-transaction-goerli.safe.global",
