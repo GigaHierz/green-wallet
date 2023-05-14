@@ -2,10 +2,10 @@
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
-require("./scripts/deploy.js");
+//require("./scripts/deploy.js");
 
-const { getHardhatSettings } = require("./scripts/helpers.js");
-const { ETHERSCAN_API_KEY } = process.env; // used to verify contracts on etherscan
+//const { getHardhatSettings } = require("./scripts/helpers.js");
+//const { ETHERSCAN_API_KEY } = process.env; // used to verify contracts on etherscan
 
 module.exports = {
   solidity: {
