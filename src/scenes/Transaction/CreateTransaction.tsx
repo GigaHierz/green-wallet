@@ -3,7 +3,6 @@ import { TransactionUtils } from "../../utils/TransactionUtils";
 import { DEFAULT_DESTINATION_ADDRESS } from "../../utils/Chain";
 import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
 import { Link } from "react-router-dom";
-import deploy from "../../../scripts/00_deploy";
 
 function CreateTransaction({
   authKit,
@@ -38,12 +37,12 @@ function CreateTransaction({
     const data = 50; //query The Graph or Airstack or add a counter
     if (data >= 50) {
       // if on Polygon or Celo use the OffsetModuel, on all otherchains use the Bridge Module
-      deploy(
-        address,
-        address,
-        "0x1c82e12bfe5b782e1238b711b152beb786ce4ed4",
-        10
-      );
+      // deploy(
+      //   address,
+      //   address,
+      //   "0x1c82e12bfe5b782e1238b711b152beb786ce4ed4",
+      //   10
+      // );
     }
   }
 
