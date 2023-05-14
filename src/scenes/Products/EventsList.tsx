@@ -14,7 +14,7 @@ function EventsList() {
           blockchain transactions by offsetting your carbon footprint. 👣
         </p>
         <div className="px-20">
-          <hr />
+          <hr className="mb-10" />
           <h1 className="font-bold text-3xl mb-10">How it works?</h1>
           <ul className="text-lg font-semibold">
             <li>
