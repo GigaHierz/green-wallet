@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TransactionUtils } from "../../utils/TransactionUtils";
 import { DEFAULT_DESTINATION_ADDRESS } from "../../utils/Chain";
 import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
+import { Link } from "react-router-dom";
 
 function CreateTransaction({
   authKit,
@@ -61,6 +62,14 @@ function CreateTransaction({
       >
         Create Sponsored Transaction
       </button>
+      <div className="mt-10">
+        <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+          <Link to="/wallet/manage">Back</Link>
+        </p>
+        <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+          <Link to="/wallet/fund">Next</Link>
+        </p>
+      </div>
     </div>
   );
 }

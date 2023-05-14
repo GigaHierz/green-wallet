@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { SAMPLE_EVENTS } from "../../models/Product";
 function EventsList() {
@@ -28,6 +29,14 @@ function EventsList() {
             <li>• Receive a membership NFT that can be displayed in your</li>
             <li>• Get analytics about your carbon footprint generation</li>
           </ul>
+        </div>
+        <div className="mt-10">
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/manage">Back</Link>
+          </p>
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/fund">Next</Link>
+          </p>
         </div>
       </div>
     </div>
