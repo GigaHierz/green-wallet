@@ -4,6 +4,8 @@ import { TransactionUtils } from "../../utils/TransactionUtils";
 import WalletManage from "./WalletManage";
 import AccountManage from "./AccountManage";
 import { SafeAuthKit, Web3AuthAdapter } from "@safe-global/auth-kit";
+import { Link } from "react-router-dom";
+
 import "tailwindcss/tailwind.css";
 
 function WalletCreate() {
@@ -104,7 +106,34 @@ function WalletCreate() {
               </button>
             </div>
           ))}
+        </form>
 
+        <hr />
+
+        <div className="m-10 px-16">
+          <p className="font-bold my-2">
+            To account for the carbon footprint of your transaction we will
+            retire every 500 transactions the equivalent in tons.
+          </p>
+          <p className="font-bold my-2 pt-2">
+            Basic: Lowest ranking certificates will be retired - 2 € <br></br>
+            Quality: Highest ranking certificates will be retired - 5 €
+          </p>
+          <button
+            className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
+            // onClick=
+          >
+            Basic 2 €
+          </button>
+          <button
+            className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
+            // onClick=
+          >
+            Quality 5€
+          </button>
+        </div>
+
+        <form className="m-10 px-16">
           <div>
             <hr />
 
@@ -124,30 +153,16 @@ function WalletCreate() {
           >
             Create Wallet
           </button>
-          <div className="my-2">
-            <p className="font-bold my-2">
-              To account for the carbon footprint of your transaction we will
-              retire every 500 transactions the equivalent in tons.
-            </p>
-            <hr />
-            <p className="font-bold my-2 pt-2">
-              Basic: Lowest ranking certificates will be retired - 2 € <br></br>
-              Quality: Highest ranking certificates will be retired - 5 €
-            </p>
-            <button
-              className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
-              // onClick=
-            >
-              Basic 2 €
-            </button>
-            <button
-              className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
-              // onClick=
-            >
-              Quality 5€
-            </button>
-          </div>
         </form>
+
+        <div>
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/manage">Back</Link>
+          </p>
+          <p className="rounded-full btn btn-primary bg-indigo-600 border-black m-2 my-2">
+            <Link to="/wallet/fund">Next</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
