@@ -50,13 +50,13 @@ function CreateTransaction({
         onChange={handleAmountChange}
       />
       <button
-        className="btn btn-primary bg-green-600 border-black my-2"
+        className="rounded-full btn btn-primary bg-green-600 border-black my-2"
         onClick={() => createTransaction()}
       >
         Create Transaction
       </button>{" "}
       <button
-        className="btn btn-primary bg-indigo-600 border-black my-2"
+        className="rounded-full btn btn-primary bg-indigo-600 border-black my-2"
         onClick={() => createTransaction(true)}
       >
         Create Sponsored Transaction
