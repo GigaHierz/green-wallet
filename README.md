@@ -1,12 +1,9 @@
-# Green Wallet
+# Welcome to GreenWallet! 🌻
 
-- Https://GitHub.com/vmlvaske
-- https://github.com/IreneBa26
-- https://github.com/i-am-sam-codes
-- https://github.com/GigaHierz
-- https://github.com/zoefleischer
 
-## Quickstart
+**GreenWallet** is an ecofriendly, chain-agnostic wallet that accounts for your blockchain transactions by offsetting your carbon footprint.
+
+## Greenstart your way 
 
 ```
 git clone https://github.com/5afe/safe-space
@@ -18,7 +15,7 @@ yarn start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Deploying smart contracts
+## Deploying smart&sustainable contracts
 
 1. Get some tokens to pay the gas fees for deploying the smart contracts:
    1. Ethereum Goerli: https://goerlifaucet.com
@@ -38,7 +35,7 @@ npx hardhat deploy --chain-id 5
    1. Here are some examples:
       1. Ethereum Goerli: `npx hardhat deploy --chain-id 5`
 
-### Verifying Smart Contract on Etherscan
+### Verifying tha magic Smart Contract on Etherscan
 
 1. Get Etherscan API Key: https://etherscan.io/myapikey
    1. Similar process for Other networks
@@ -47,7 +44,7 @@ npx hardhat deploy --chain-id 5
    1. Example: `npx hardhat verify --network goerli 0x85942528541a1d7db9e9d84a074d0b2204c94b5a`
    1. To see a list of other networks: `npx hardhat verify --list-networks`
 
-## Contracts
+## Wizard Contracts
 
 1. NFT Marketplace: https://goerli.etherscan.io/address/0xa0a3c753387050d1949d6b8db672fff724b635c1#code
 
@@ -60,19 +57,13 @@ npx hardhat deploy --chain-id 5
 1. Edit `server/nfts.json`
 
 
-## Project Descriptions
+## Green wallet details
 
-Short Description:
-GreenWallet is an ecofriendly, chain-agnostic wallet that accounts for your blockchain transactions by offsetting your carbon footprint.
-
-Full Description:
-GreenWallet is a chain-agnostic DeFi app that simplifies eco-friendliness by automating carbon offsets for blockchain transactions.
+**GreenWallet** is a chain-agnostic DeFi app that simplifies eco-friendliness by automating carbon offsets for blockchain transactions.
 GreenWallet aims to give the environmentally aware user a clean consciousness while browsing web3.
 While the user has a seamless experience, GreenWallets mechanisms track all the transactions across chains and calculate the according carbon footprint.
 We are specifically targeting a tech-savvy audience that cares about their environmental impact. While some web3 experience is necessary to use GreenWallet, we aim at an user-friendly and simple Inetrface.
-Users can maximize their agency over their carbon impact by inspecting  analytics of their wallet transactions. These will give them visually digested information about the when, where and how of their carbon footprint creation.
-Every holder receives a NFT as proof of GreenWallet membership.
-Lastly the wallet integrates with Lens Protocol to allow display of your NFT carbon offset badge.
+Users can maximize their agency over their carbon impact by inspecting  analytics of their wallet transactions. These will give them visually digested information about the when, where and how of their carbon footprint creation. Our app is designed to offset the carbon emissions of transactions at regular intervals, ensuring that the environmental impact is consistently minimized over time.
 
 Pitch:
 We are building an eco-friendly wallet that automatically offsets your carbon footprint cross-chain by tracking your wallet activity. Aiming to provide a seamless opportunity for environmentally conscious users to improve their social impact.
@@ -82,3 +73,18 @@ We are building an eco-friendly wallet that automatically offsets your carbon fo
 source .env
 node server/CreateNFT.js 'server/nfts.json'
 ```
+## Who are we?
+
+And here is the team that brought their indelible mark at EthGlobal Lisbon 2023! 🔮
+
+We are a team of 5 tech wizards, with expertises from different domains and different background:
+
+🍉 Valerie - Https://GitHub.com/vmlvaske
+
+🍉 Irene - https://github.com/IreneBa26
+
+🍉 Sam - https://github.com/i-am-sam-codes
+
+🍉 Lena - https://github.com/GigaHierz
+
+🍉 Zoe - https://github.com/zoefleischer
