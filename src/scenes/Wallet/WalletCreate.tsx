@@ -114,20 +114,20 @@ function WalletCreate() {
             retire every 500 transactions the equivalent in tons.
           </p>
           <p className="font-bold my-2 pt-2">
-            Basic: Lowest ranking certificates will be retired - 2 € <br></br>
-            Quality: Highest ranking certificates will be retired - 5 €
+            Basic: Lowest ranking certificates will be retired - 2$ <br></br>
+            Quality: Highest ranking certificates will be retired - 5$
           </p>
           <button
             className="rounded-full btn btn-primary bg-green-600 my-2 border-black"
             // onClick=
           >
-            Basic 2 €
+            Basic 2$
           </button>
           <button
             className="rounded-full btn btn-primary bg-green-600 m-2 border-black"
             // onClick=
           >
-            Quality 5€
+            Quality 5$
           </button>
         </div>
 
