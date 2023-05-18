@@ -55,12 +55,12 @@ And here is the team that brought their indelible mark at EthGlobal Lisbon 2023!
 
 We are a team of 5 tech wizards, with expertises from different domains and different background:
 
-🍉 Valerie - Https://GitHub.com/vmlvaske
+🍉 [Valerie](Https://GitHub.com/vmlvaske)
 
-🍉 Irene - https://github.com/IreneBa26
+🍉 [Irene](https://github.com/IreneBa26)
 
-🍉 Sam - https://github.com/i-am-sam-codes
+🍉 [Sam](https://github.com/i-am-sam-codes)
 
-🍉 Lena - https://github.com/GigaHierz
+🍉 [Lena](https://github.com/GigaHierz)
 
-🍉 Zoe - https://github.com/zoefleischer
+🍉 [Zoe](https://github.com/zoefleischer)
